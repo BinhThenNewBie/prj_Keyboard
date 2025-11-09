@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeyCraft - Premium Mechanical Keyboards</title>
+    <title>MKG Shop - Keycaps</title>
     <style>
         * {
             margin: 0;
@@ -12,364 +12,353 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
         }
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .top-bar {
+            background-color: #2c2c2c;
             color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            font-size: 14px;
         }
 
-        nav {
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .top-bar-content span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header {
+            background: #f5a623;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
         }
 
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            letter-spacing: 2px;
+            font-size: 18px;
+        }
+
+        .user-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .user-menu a {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cart-icon {
+            position: relative;
+            padding: 8px 15px;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        .nav-bar {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 30px;
             list-style: none;
+            padding: 15px 0;
         }
 
         .nav-links a {
-            color: white;
+            color: #2c2c2c;
             text-decoration: none;
-            transition: opacity 0.3s;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: #f5a623;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 2rem 80px;
-            text-align: center;
-            margin-top: 60px;
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 8px 15px;
+            width: 300px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeIn 1s;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
+        .search-box input {
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            display: inline-block;
+            background: transparent;
+            outline: none;
+            width: 100%;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .products {
+        .container {
             max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
+        .page-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #ffffff;
         }
 
-        .product-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .product-card {
-            background: white;
-            border-radius: 15px;
+            background-color: white;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .product-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
+            object-fit: cover;
+            background-color: #f0f0f0;
         }
 
-        .product-card:nth-child(2) .product-image {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .product-card:nth-child(3) .product-image {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .product-card:nth-child(4) .product-image {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        .out-of-stock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #ff4444;
         }
 
         .product-info {
-            padding: 1.5rem;
+            padding: 15px;
         }
 
-        .product-name {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .product-description {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .product-title {
+            font-size: 15px;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            height: 42px;
+            overflow: hidden;
         }
 
         .product-price {
-            font-size: 1.5rem;
+            font-size: 18px;
             font-weight: bold;
-            color: #667eea;
+            color: #d32f2f;
         }
 
-        .buy-button {
-            background: #667eea;
-            color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-weight: 600;
-        }
-
-        .buy-button:hover {
-            background: #764ba2;
-        }
-
-        .features {
-            background: #f8f9fa;
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">⌨️ KeyCraft</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>⏰ 08:00 - 23:00</span>
+            <span>📞 PHONE / ZALO : 0976.880.517</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-img">MKG shop</div>
+            </div>
+            <div class="user-menu">
+                <a href="#">ĐĂNG NHẬP</a>
+                <a href="#" class="cart-icon">GIỎ HÀNG / 0₫ 🛒</a>
+            </div>
+        </div>
     </header>
 
-    <section class="hero" id="home">
-        <h1>Premium Mechanical Keyboards</h1>
-        <p>Elevate your typing experience with handcrafted excellence</p>
-        <a href="#products" class="cta-button">Shop Now</a>
-    </section>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="#">KEYBOARDS</a></li>
+                <li><a href="#" style="color: #f5a623;">KEYCAPS</a></li>
+                <li><a href="#">PHỤ KIỆN</a></li>
+                <li><a href="#">REVIEW/TUTORIAL</a></li>
+                <li><a href="#">DỊCH VỤ SỬA CHỮA</a></li>
+                <li><a href="#">LIÊN HỆ</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm thứ bạn tìm...">
+                <span>🔍</span>
+            </div>
+        </div>
+    </nav>
 
-    <section class="products" id="products">
-        <h2 class="section-title">Our Collection</h2>
-        <div class="product-grid">
+    <div class="container">
+        <h1 class="page-title">Keycaps</h1>
+        <div class="products-grid">
             <div class="product-card">
-                <div class="product-image">⌨️</div>
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #e8e8e8 0%, #c8c8c8 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                </div>
                 <div class="product-info">
-                    <h3 class="product-name">Aurora Pro</h3>
-                    <p class="product-description">RGB backlit, hot-swappable switches, aluminum frame</p>
-                    <div class="product-footer">
-                        <span class="product-price">$149</span>
-                        <button class="buy-button">Add to Cart</button>
-                    </div>
+                    <div class="product-title">Bộ nút Keycap 9009 – Cherry profile – PBT dyesub</div>
+                    <div class="product-price">399.000₫</div>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image">⌨️</div>
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #2c5f6f 0%, #1a3d4a 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                    <div class="out-of-stock">Sản phẩm không bao gồm bàn phím</div>
+                </div>
                 <div class="product-info">
-                    <h3 class="product-name">Stealth Elite</h3>
-                    <p class="product-description">Silent switches, minimalist design, wireless</p>
-                    <div class="product-footer">
-                        <span class="product-price">$189</span>
-                        <button class="buy-button">Add to Cart</button>
-                    </div>
+                    <div class="product-title">Keycap Africa thổ dân – PBT dyesub – Cherry profile – Font màu sắc đẹp sống ngỡ nút bàn phím cơ</div>
+                    <div class="product-price">439.000₫</div>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image">⌨️</div>
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                </div>
                 <div class="product-info">
-                    <h3 class="product-name">Retro Classic</h3>
-                    <p class="product-description">Vintage aesthetics, tactile feedback, USB-C</p>
-                    <div class="product-footer">
-                        <span class="product-price">$129</span>
-                        <button class="buy-button">Add to Cart</button>
-                    </div>
+                    <div class="product-title">Keycap Aifei BOB – Cherry profile – ABS doubleshot</div>
+                    <div class="product-price">249.000₫</div>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image">⌨️</div>
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #e8e8f8 0%, #c8d8e8 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                    <div class="out-of-stock">Sản phẩm đang bảo bán</div>
+                </div>
                 <div class="product-info">
-                    <h3 class="product-name">Gaming Master</h3>
-                    <p class="product-description">Low latency, programmable keys, RGB effects</p>
-                    <div class="product-footer">
-                        <span class="product-price">$199</span>
-                        <button class="buy-button">Add to Cart</button>
-                    </div>
+                    <div class="product-title">Keycap Aifei BOW V2 | PBT doubleshot | Cherry profile</div>
+                    <div class="product-price">249.000₫</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #ff8866 0%, #ff6644 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Keycap PBT Orange – Cherry profile</div>
+                    <div class="product-price">199.000₫</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #4466ff 0%, #3355dd 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Keycap Blue White – PBT dyesub – Cherry profile</div>
+                    <div class="product-price">299.000₫</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #228844 0%, #116622 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Keycap Green Matcha – Cherry profile – PBT</div>
+                    <div class="product-price">249.000₫</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div style="position: relative;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #aa88cc 0%, #8866aa 100%);"></div>
+                    <div class="product-badge">MKG shop</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Keycap Purple Dream – Cherry profile</div>
+                    <div class="product-price">279.000₫</div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="features-container">
-            <h2 class="section-title">Why Choose KeyCraft?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🎨</div>
-                    <h3 class="feature-title">Custom Designs</h3>
-                    <p>Personalize every aspect of your keyboard</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">High Performance</h3>
-                    <p>Lightning-fast response times for gaming and work</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <h3 class="feature-title">Built to Last</h3>
-                    <p>Premium materials with 2-year warranty</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🚚</div>
-                    <h3 class="feature-title">Free Shipping</h3>
-                    <p>Fast and free delivery worldwide</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <p>&copy; 2025 KeyCraft. All rights reserved.</p>
-        <p>Contact us: info@keycraft.com | +1 (555) 123-4567</p>
-    </footer>
+    </div>
 </body>
 </html>
